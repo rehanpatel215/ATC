@@ -9,18 +9,18 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+      className="relative inline-flex h-9 w-9 items-center justify-center rounded-md border border-[#C7D3C1] bg-[#FAFAF7] text-[#465447] transition-colors hover:bg-[#F2F5EF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#465447] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] dark:border-[#3a443a] dark:bg-[#202720] dark:text-[#C7D3C1] dark:hover:bg-[#263026] dark:focus-visible:ring-[#A8B5A0] dark:focus-visible:ring-offset-[#151a16]"
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
     >
       <Sun
-        className={`absolute h-[18px] w-[18px] transition-all duration-300 ${
+        className={`absolute h-[17px] w-[17px] transition-all duration-300 ${
           isDark ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
         }`}
         aria-hidden="true"
       />
       <Moon
-        className={`absolute h-[18px] w-[18px] transition-all duration-300 ${
+        className={`absolute h-[17px] w-[17px] transition-all duration-300 ${
           isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
         }`}
         aria-hidden="true"

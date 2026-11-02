@@ -11,30 +11,30 @@ export interface SvgOptions {
 
 const PALETTE = {
   light: {
-    background: '#ffffff',
-    edge: '#64748b',
-    labelBg: '#f8fafc',
-    labelBorder: '#e2e8f0',
-    labelText: '#334155',
-    nodeFill: '#ffffff',
-    nodeStroke: '#475569',
-    nodeText: '#0f172a',
-    initial: '#4338ca',
-    final: '#475569',
-    legend: '#64748b',
+    background: '#FAFAF7',
+    edge: '#8a958a',
+    labelBg: '#F2F5EF',
+    labelBorder: '#C7D3C1',
+    labelText: '#3e4c3f',
+    nodeFill: '#FAFAF7',
+    nodeStroke: '#465447',
+    nodeText: '#292D29',
+    initial: '#465447',
+    final: '#465447',
+    legend: '#465447',
   },
   dark: {
-    background: '#0b1220',
-    edge: '#94a3b8',
-    labelBg: '#111c2e',
-    labelBorder: '#334155',
-    labelText: '#cbd5e1',
-    nodeFill: '#0f1a2c',
-    nodeStroke: '#94a3b8',
-    nodeText: '#f1f5f9',
-    initial: '#a5b4fc',
-    final: '#94a3b8',
-    legend: '#94a3b8',
+    background: '#151a16',
+    edge: '#8f9c8c',
+    labelBg: '#1b211c',
+    labelBorder: '#3a443a',
+    labelText: '#C7D3C1',
+    nodeFill: '#1b211c',
+    nodeStroke: '#A8B5A0',
+    nodeText: '#F2F5EF',
+    initial: '#C7D3C1',
+    final: '#A8B5A0',
+    legend: '#A8B5A0',
   },
 } as const
 
@@ -266,7 +266,7 @@ export async function downloadPng(dfa: DFA, filename: string, scale = 2): Promis
     canvas.height = GRAPH_HEIGHT * scale
     const context = canvas.getContext('2d')
     if (!context) throw new Error('Canvas is not available in this browser.')
-    context.fillStyle = '#ffffff'
+    context.fillStyle = '#FAFAF7'
     context.fillRect(0, 0, canvas.width, canvas.height)
     context.drawImage(image, 0, 0, canvas.width, canvas.height)
     const pngBlob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'))

@@ -53,7 +53,7 @@ function StateNodeView({ data, selected }: NodeProps<StateNode>) {
   return (
     <div className="relative" style={{ width: NODE_SIZE, height: NODE_SIZE }}>
       {data.isInitial && (
-        <div className="pointer-events-none absolute -left-[46px] top-1/2 flex -translate-y-1/2 items-center gap-0.5 text-indigo-600 dark:text-indigo-400">
+        <div className="pointer-events-none absolute -left-[46px] top-1/2 flex -translate-y-1/2 items-center gap-0.5 text-[#465447] dark:text-[#C7D3C1]">
           <span className="text-[8px] font-bold uppercase tracking-wide">start</span>
           <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true">
             <line x1="1" y1="5" x2="14" y2="5" stroke="currentColor" strokeWidth="1.8" />
@@ -64,10 +64,10 @@ function StateNodeView({ data, selected }: NodeProps<StateNode>) {
 
       <div
         className={cn(
-          'relative flex h-full w-full items-center justify-center rounded-full border-2 border-slate-500 bg-white text-center text-slate-900 shadow-sm transition-[box-shadow,border-color,opacity] dark:border-slate-400 dark:bg-[#0f1a2c] dark:text-slate-100',
+          'relative flex h-full w-full items-center justify-center rounded-full border-2 border-[#465447]/75 bg-[#FAFAF7] text-center text-[#292D29] shadow-sm transition-[box-shadow,border-color,opacity] dark:border-[#C7D3C1]/70 dark:bg-[#1b211c] dark:text-[#F2F5EF]',
           data.isFaded && 'border-dashed opacity-30',
-          data.isFocused && 'node-focused ring-4 ring-amber-400/60',
-          selected && 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-[#0b1220]',
+          data.isFocused && 'node-focused ring-4 ring-[#b08a52]/55',
+          selected && 'ring-2 ring-[#A8B5A0] ring-offset-2 ring-offset-[#FAFAF7] dark:ring-offset-[#151a16]',
           data.canSelect && 'cursor-pointer',
         )}
         style={data.groupColor ? { borderColor: data.groupColor } : undefined}
@@ -82,13 +82,13 @@ function StateNodeView({ data, selected }: NodeProps<StateNode>) {
         </span>
         {data.isFinal && (
           <span
-            className="pointer-events-none absolute inset-[4px] rounded-full border-2 border-slate-500 dark:border-slate-400"
+            className="pointer-events-none absolute inset-[4px] rounded-full border-2 border-[#465447]/75 dark:border-[#C7D3C1]/60"
             style={data.groupColor ? { borderColor: data.groupColor } : undefined}
             aria-hidden="true"
           />
         )}
         {data.isVisited && (
-          <span className="absolute -right-1 -top-1 z-20 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm">
+          <span className="absolute -right-1 -top-1 z-20 flex h-4 w-4 items-center justify-center rounded-full bg-[#465447] text-[#F2F5EF] shadow-sm dark:bg-[#A8B5A0] dark:text-[#20291f]">
             <Check className="h-2.5 w-2.5" strokeWidth={3} aria-hidden="true" />
           </span>
         )}
@@ -176,15 +176,15 @@ function DfaEdgeView(props: EdgeProps<DfaEdge>) {
   }
 
   const edgeClasses = data.faded
-    ? 'stroke-slate-300 dark:stroke-slate-700'
+    ? 'stroke-[#C7D3C1] dark:stroke-[#333c34]'
     : data.active
-      ? 'stroke-indigo-500 dark:stroke-indigo-400'
-      : 'stroke-slate-400 dark:stroke-slate-500'
+      ? 'stroke-[#465447] dark:stroke-[#A8B5A0]'
+      : 'stroke-[#8a958a] dark:stroke-[#6b776b]'
   const arrowClasses = data.faded
-    ? 'fill-slate-300 dark:fill-slate-700'
+    ? 'fill-[#C7D3C1] dark:fill-[#333c34]'
     : data.active
-      ? 'fill-indigo-500 dark:fill-indigo-400'
-      : 'fill-slate-400 dark:fill-slate-500'
+      ? 'fill-[#465447] dark:fill-[#A8B5A0]'
+      : 'fill-[#8a958a] dark:fill-[#6b776b]'
 
   return (
     <>
@@ -208,11 +208,11 @@ function DfaEdgeView(props: EdgeProps<DfaEdge>) {
           className={cn(
             'pointer-events-none absolute z-10 rounded-md border px-1.5 py-0.5 text-[10px] font-semibold shadow-sm transition-colors',
             data.faded
-              ? 'border-slate-200 bg-slate-50 text-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-600'
+              ? 'border-[#C7D3C1]/60 bg-[#F2F5EF] text-[#a3ada0] dark:border-[#333c34] dark:bg-[#1b211c] dark:text-[#5c665c]'
               : data.active
-                ? 'border-indigo-300 bg-indigo-50 text-indigo-700 dark:border-indigo-500/50 dark:bg-indigo-500/15 dark:text-indigo-200'
-                : 'border-slate-200 bg-white text-slate-600 dark:border-slate-700 dark:bg-[#0f1a2c] dark:text-slate-300',
-            props.selected && 'ring-2 ring-indigo-500/50',
+                ? 'border-[#465447]/40 bg-[#A8B5A0]/30 text-[#3e4c3f] dark:border-[#A8B5A0]/45 dark:bg-[#A8B5A0]/20 dark:text-[#C7D3C1]'
+                : 'border-[#C7D3C1] bg-[#FAFAF7] text-[#465447] dark:border-[#3a443a] dark:bg-[#1b211c] dark:text-[#C7D3C1]/80',
+            props.selected && 'ring-2 ring-[#A8B5A0]/60',
           )}
           style={{ transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)` }}
         >
@@ -429,7 +429,7 @@ function GraphInner({
     return (
       <div
         className={cn(
-          'flex items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50/60 text-xs text-slate-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-400',
+          'flex items-center justify-center rounded-lg border border-dashed border-[#C7D3C1] bg-[#F2F5EF]/60 text-xs text-[#3a463b]/75 dark:border-[#3a443a] dark:bg-[#1b211c] dark:text-[#C7D3C1]/70',
           className,
         )}
         style={{ height }}
@@ -442,7 +442,7 @@ function GraphInner({
   return (
     <div
       className={cn(
-        'relative w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-50/50 dark:border-slate-800 dark:bg-[#0a1322]',
+        'relative w-full overflow-hidden rounded-lg border border-[#C7D3C1]/80 bg-[#F2F5EF]/60 dark:border-[#333c34] dark:bg-[#1a2019]',
         connectable && 'dfa-canvas-connectable',
         className,
       )}
@@ -474,7 +474,7 @@ function GraphInner({
         className="[&_.react-flow__node]:outline-none"
       >
         <Background
-          color={theme === 'dark' ? '#1e293b' : '#d5dbe5'}
+          color={theme === 'dark' ? '#2b342c' : '#dfe5da'}
           gap={22}
           size={1.2}
         />
@@ -487,7 +487,7 @@ function GraphInner({
           setPositions(layout)
           window.setTimeout(() => fitView({ padding: 0.22, duration: 300 }), 30)
         }}
-        className="absolute right-2 top-2 z-20 inline-flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 bg-white/90 text-slate-500 shadow-sm backdrop-blur transition-colors hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-400 dark:hover:text-white"
+        className="absolute right-2 top-2 z-20 inline-flex h-7 w-7 items-center justify-center rounded-md border border-[#C7D3C1] bg-[#FAFAF7]/90 text-[#465447] shadow-sm backdrop-blur transition-colors hover:text-[#292D29] dark:border-[#3a443a] dark:bg-[#1b211c]/90 dark:text-[#C7D3C1]/80 dark:hover:text-[#F2F5EF]"
         title="Reset layout"
         aria-label="Reset graph layout"
       >

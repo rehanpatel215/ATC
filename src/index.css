@@ -4,7 +4,15 @@
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  --color-sage: #A8B5A0;
+  --color-sage-muted: #C7D3C1;
+  --color-cream-warm: #F2F5EF;
+  --color-cream-soft: #FAFAF7;
+  --color-forest: #465447;
+  --color-charcoal: #292D29;
 }
 
 @layer base {
@@ -13,19 +21,19 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-800 antialiased;
-    @apply dark:bg-[#080e1a] dark:text-slate-200;
+    @apply bg-[color:var(--color-cream-soft)] text-[color:var(--color-charcoal)] antialiased;
+    @apply dark:bg-[#151a16] dark:text-slate-200;
     min-height: 100vh;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   ::selection {
-    @apply bg-indigo-200 text-indigo-950 dark:bg-indigo-500/40 dark:text-white;
+    @apply bg-[color:var(--color-sage-muted)] text-[color:var(--color-forest)] dark:bg-[color:var(--color-sage)]/40 dark:text-slate-100;
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgb(148 163 184 / 0.5) transparent;
+    scrollbar-color: rgb(168 181 160 / 0.6) transparent;
   }
 
   *::-webkit-scrollbar {
@@ -34,7 +42,7 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-slate-300 dark:bg-slate-700;
+    @apply rounded-full bg-[color:var(--color-sage-muted)] dark:bg-[#2f372f];
   }
 
   *::-webkit-scrollbar-track {
@@ -53,7 +61,7 @@
 
 @layer components {
   .app-card {
-    @apply rounded-2xl border border-slate-200/90 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)] dark:border-slate-800 dark:bg-[#0d1626];
+    @apply rounded-xl border border-[#C7D3C1]/70 bg-[#FAFAF7] shadow-[0_1px_2px_rgba(41,45,41,0.04)] dark:border-[#333c34] dark:bg-[#1b211c];
   }
 
   .card-pad {
@@ -61,19 +69,19 @@
   }
 
   .card-title {
-    @apply text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-100;
+    @apply text-sm font-semibold tracking-tight text-[#292D29] dark:text-slate-100;
   }
 
   .card-subtitle {
-    @apply text-xs leading-relaxed text-slate-500 dark:text-slate-400;
+    @apply text-xs leading-relaxed text-[#3a463b]/80 dark:text-slate-400;
   }
 
   .eyebrow {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-indigo-600 dark:text-indigo-400;
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-[#3a463b]/75 dark:text-[#C7D3C1]/75;
   }
 
   .btn {
-    @apply inline-flex select-none items-center justify-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-40 dark:focus-visible:ring-offset-[#080e1a];
+    @apply inline-flex select-none items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#465447] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF7] disabled:cursor-not-allowed disabled:opacity-40 dark:focus-visible:ring-[#A8B5A0] dark:focus-visible:ring-offset-[#151a16];
   }
 
   .btn-sm {
@@ -81,39 +89,39 @@
   }
 
   .btn-primary {
-    @apply bg-indigo-600 text-white shadow-sm shadow-indigo-600/25 hover:bg-indigo-500 active:bg-indigo-700;
+    @apply bg-[#A8B5A0] text-[#20291f] shadow-[0_1px_2px_rgba(41,45,41,0.12)] hover:bg-[#465447] hover:text-[#F2F5EF] active:bg-[#3a463b];
   }
 
   .btn-secondary {
-    @apply border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800;
+    @apply border border-[#A8B5A0]/70 bg-[#FAFAF7] text-[#465447] hover:border-[#465447]/50 hover:bg-[#F2F5EF] dark:border-[#465447] dark:bg-[#202720] dark:text-[#C7D3C1] dark:hover:border-[#A8B5A0]/60 dark:hover:bg-[#263026];
   }
 
   .btn-ghost {
-    @apply text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100;
+    @apply text-[#3a463b]/85 hover:bg-[#F2F5EF] hover:text-[#292D29] dark:text-[#C7D3C1]/80 dark:hover:bg-[#263026] dark:hover:text-slate-100;
   }
 
   .btn-danger {
-    @apply border border-rose-200 bg-rose-50 text-rose-700 hover:bg-rose-100 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-300 dark:hover:bg-rose-500/20;
+    @apply border border-[#c9a79b] bg-[#f7ece7] text-[#7c4232] hover:bg-[#f0ddd5] dark:border-[#7c4232]/60 dark:bg-[#7c4232]/15 dark:text-[#e0b8a9] dark:hover:bg-[#7c4232]/25;
   }
 
   .btn-success {
-    @apply border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300 dark:hover:bg-emerald-500/20;
+    @apply bg-[#465447] text-[#F2F5EF] hover:bg-[#3a463b] active:bg-[#313c32] dark:bg-[#A8B5A0] dark:text-[#20291f] dark:hover:bg-[#C7D3C1];
   }
 
   .icon-btn {
-    @apply inline-flex h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-40 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100;
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-[#3a463b]/85 transition-colors hover:bg-[#F2F5EF] hover:text-[#292D29] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#465447] disabled:opacity-40 dark:text-[#C7D3C1]/75 dark:hover:bg-[#263026] dark:hover:text-slate-100;
   }
 
   .field-label {
-    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:text-[#C7D3C1]/75;
   }
 
   .input {
-    @apply w-full rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs text-slate-900 placeholder:text-slate-400 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-indigo-500;
+    @apply w-full rounded-lg border border-[#C7D3C1] bg-[#FAFAF7] px-2.5 py-1.5 text-xs text-[#292D29] placeholder:text-[#3a463b]/75 focus:border-[#A8B5A0] focus:outline-none focus:ring-2 focus:ring-[#A8B5A0]/35 dark:border-[#3a443a] dark:bg-[#151a16] dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-[#A8B5A0];
   }
 
   .select {
-    @apply w-full appearance-none rounded-lg border border-slate-200 bg-white px-2 py-1.5 text-xs text-slate-900 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 dark:border-slate-700 dark:bg-slate-950/60 dark:text-slate-100 dark:focus:border-indigo-500;
+    @apply w-full appearance-none rounded-lg border border-[#C7D3C1] bg-[#FAFAF7] px-2 py-1.5 text-xs text-[#292D29] focus:border-[#A8B5A0] focus:outline-none focus:ring-2 focus:ring-[#A8B5A0]/35 dark:border-[#3a443a] dark:bg-[#151a16] dark:text-slate-100 dark:focus:border-[#A8B5A0];
   }
 
   .chip {
@@ -121,27 +129,27 @@
   }
 
   .chip-neutral {
-    @apply border-slate-200 bg-slate-50 text-slate-600 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300;
+    @apply border-[#C7D3C1] bg-[#F2F5EF] text-[#465447] dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1];
   }
 
   .chip-amber {
-    @apply border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300;
+    @apply border-[#d8c39b] bg-[#f6efdf] text-[#765c2e] dark:border-[#8a6d38]/50 dark:bg-[#8a6d38]/15 dark:text-[#dcc295];
   }
 
   .chip-rose {
-    @apply border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-300;
+    @apply border-[#c9a79b] bg-[#f7ece7] text-[#7c4232] dark:border-[#7c4232]/50 dark:bg-[#7c4232]/15 dark:text-[#e0b8a9];
   }
 
   .chip-emerald {
-    @apply border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300;
+    @apply border-[#A8B5A0] bg-[#e7ede3] text-[#3e4c3f] dark:border-[#A8B5A0]/40 dark:bg-[#A8B5A0]/15 dark:text-[#C7D3C1];
   }
 
   .chip-indigo {
-    @apply border-indigo-200 bg-indigo-50 text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-300;
+    @apply border-[#A8B5A0]/80 bg-[#F2F5EF] text-[#3e4c3f] dark:border-[#A8B5A0]/35 dark:bg-[#A8B5A0]/10 dark:text-[#C7D3C1];
   }
 
   .divider {
-    @apply my-3 border-t border-slate-100 dark:border-slate-800;
+    @apply my-3 border-t border-[#C7D3C1]/50 dark:border-[#333c34];
   }
 
   .panel-scroll {
@@ -153,11 +161,11 @@
   }
 
   .data-table th {
-    @apply whitespace-nowrap border-b border-slate-200 bg-slate-50/80 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400;
+    @apply whitespace-nowrap border-b border-[#C7D3C1]/80 bg-[#F2F5EF] px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/85 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/75;
   }
 
   .data-table td {
-    @apply border-b border-slate-100 px-2.5 py-1.5 text-slate-700 dark:border-slate-800 dark:text-slate-300;
+    @apply border-b border-[#C7D3C1]/45 px-2.5 py-1.5 text-[#292D29] dark:border-[#333c34] dark:text-slate-300;
   }
 
   .data-table tr:last-child td {
@@ -171,7 +179,7 @@
 @keyframes mark-pop {
   0% {
     transform: scale(0.75);
-    background-color: rgb(244 63 94 / 0.35);
+    background-color: rgb(124 66 50 / 0.28);
   }
   60% {
     transform: scale(1.08);
@@ -201,10 +209,10 @@
 @keyframes node-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgb(245 158 11 / 0.4);
+    box-shadow: 0 0 0 0 rgb(176 138 82 / 0.35);
   }
   50% {
-    box-shadow: 0 0 0 6px rgb(245 158 11 / 0.08);
+    box-shadow: 0 0 0 6px rgb(176 138 82 / 0.06);
   }
 }
 
@@ -249,11 +257,11 @@
 }
 
 .react-flow__attribution a {
-  color: rgb(100 116 139 / 0.75);
+  color: #3a463b;
 }
 
 .dark .react-flow__attribution a {
-  color: rgb(148 163 184 / 0.6);
+  color: #c7d3c1;
 }
 
 .react-flow__node {
@@ -268,15 +276,15 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgb(99 102 241 / 0.8);
-  background: rgb(255 255 255 / 0.9);
+  border: 1px solid rgb(70 84 71 / 0.8);
+  background: rgb(250 250 247 / 0.95);
   opacity: 0.15;
   transition: opacity 0.15s ease;
 }
 
 .dark .react-flow__handle.dfa-handle {
-  background: rgb(15 23 42 / 0.9);
-  border-color: rgb(129 140 248 / 0.9);
+  background: rgb(27 33 28 / 0.95);
+  border-color: rgb(199 211 193 / 0.8);
 }
 
 .react-flow__handle.dfa-handle:hover {
@@ -292,35 +300,35 @@
 }
 
 .react-flow__controls {
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgb(15 23 42 / 0.08);
-  border: 1px solid rgb(226 232 240);
+  box-shadow: 0 2px 10px rgb(41 45 41 / 0.07);
+  border: 1px solid rgb(199 211 193);
 }
 
 .dark .react-flow__controls {
-  border-color: rgb(30 41 59);
+  border-color: rgb(58 68 58);
   box-shadow: 0 2px 12px rgb(0 0 0 / 0.35);
 }
 
 .react-flow__controls-button {
-  background: white;
-  border-bottom: 1px solid rgb(241 245 249);
-  color: rgb(71 85 105);
+  background: #FAFAF7;
+  border-bottom: 1px solid rgb(242 245 239);
+  color: #465447;
 }
 
 .dark .react-flow__controls-button {
-  background: #0f172a;
-  border-bottom-color: rgb(30 41 59);
-  color: rgb(148 163 184);
+  background: #1b211c;
+  border-bottom-color: rgb(51 60 52);
+  color: rgb(199 211 193 / 0.75);
 }
 
 .react-flow__controls-button:hover {
-  background: rgb(248 250 252);
+  background: #F2F5EF;
 }
 
 .dark .react-flow__controls-button:hover {
-  background: rgb(30 41 59);
+  background: rgb(38 48 38);
 }
 
 .react-flow__controls-button svg {
@@ -341,7 +349,7 @@
 
   body {
     background: white !important;
-    color: #0f172a !important;
+    color: #292D29 !important;
   }
 
   body * {
@@ -359,7 +367,7 @@
     inset: 0;
     width: 100%;
     background: white;
-    color: #0f172a;
+    color: #292D29;
     font-size: 11px;
   }
 
@@ -371,7 +379,7 @@
   .print-report h2 {
     font-size: 13px;
     margin: 14px 0 6px;
-    border-bottom: 1px solid #cbd5e1;
+    border-bottom: 1px solid #C7D3C1;
     padding-bottom: 3px;
   }
 
@@ -383,14 +391,14 @@
 
   .print-report th,
   .print-report td {
-    border: 1px solid #cbd5e1;
+    border: 1px solid #C7D3C1;
     padding: 3px 5px;
     text-align: left;
     font-size: 10px;
   }
 
   .print-report .muted {
-    color: #475569;
+    color: #465447;
   }
 
   .print-report .avoid-break {

@@ -22,12 +22,12 @@ interface PairTableProps {
 
 function cellTone(marked: boolean, finalized: boolean): string {
   if (marked) {
-    return 'border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-300'
+    return 'border-[#c9a79b] bg-[#f7ece7] text-[#7c4232] dark:border-[#7c4232]/55 dark:bg-[#7c4232]/15 dark:text-[#e0b8a9]'
   }
   if (finalized) {
-    return 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-300'
+    return 'border-[#A8B5A0] bg-[#e7ede3] text-[#3e4c3f] dark:border-[#A8B5A0]/45 dark:bg-[#A8B5A0]/12 dark:text-[#C7D3C1]'
   }
-  return 'border-slate-200 bg-white text-slate-400 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-500'
+  return 'border-[#C7D3C1] bg-[#FAFAF7] text-[#3a463b]/75 dark:border-[#3a443a] dark:bg-[#1b211c]/70 dark:text-[#C7D3C1]/70'
 }
 
 function CellContent({
@@ -86,17 +86,17 @@ export function PairTable({
     return (
       <div className="app-card card-pad">
         <div className="flex items-start gap-3">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F2F5EF] text-[#3a463b]/75 dark:bg-[#263026] dark:text-[#C7D3C1]/70">
             <Info className="h-4 w-4" aria-hidden="true" />
           </span>
           <div>
             <h2 className="card-title">Table-filling matrix</h2>
-            <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="mt-1 text-xs leading-relaxed text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
               The triangular table appears after the reachability analysis. Every unordered pair of
               reachable states will get exactly one cell.
             </p>
             {analysis.valid && analysis.unreachable.length > 0 && (
-              <p className="mt-2 inline-flex flex-wrap items-center gap-1.5 text-[11px] text-amber-700 dark:text-amber-300">
+              <p className="mt-2 inline-flex flex-wrap items-center gap-1.5 text-[11px] text-[#765c2e] dark:text-[#dcc295]">
                 <span className="chip chip-amber">unreachable</span>
                 {analysis.unreachable.join(', ')} will be removed first and never added to the table.
               </p>
@@ -111,7 +111,7 @@ export function PairTable({
     return (
       <div className="app-card card-pad">
         <h2 className="card-title">Table-filling matrix</h2>
-        <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+        <p className="mt-1 text-xs leading-relaxed text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           Only one reachable state remains, so there are no pairs to compare. The minimized DFA keeps
           that single state.
         </p>
@@ -129,13 +129,13 @@ export function PairTable({
             {analysis.unreachable.length > 0 ? ` · ${analysis.unreachable.length} unreachable removed` : ''}
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2 text-[10px] font-medium text-slate-500 dark:text-slate-400">
+        <div className="flex flex-wrap items-center gap-2 text-[10px] font-medium text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           <span className="inline-flex items-center gap-1">
-            <CircleX className="h-3 w-3 text-rose-600 dark:text-rose-400" aria-hidden="true" />
+            <CircleX className="h-3 w-3 text-[#7c4232] dark:text-[#e0b8a9]" aria-hidden="true" />
             distinguishable
           </span>
           <span className="inline-flex items-center gap-1">
-            <CircleCheck className="h-3 w-3 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+            <CircleCheck className="h-3 w-3 text-[#3e4c3f] dark:text-[#C7D3C1]" aria-hidden="true" />
             equivalent
           </span>
           <span className="inline-flex items-center gap-1">
@@ -145,12 +145,12 @@ export function PairTable({
       </div>
 
       {analysis.unreachable.length > 0 && (
-        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 rounded-lg border border-dashed border-amber-300 bg-amber-50/70 px-2.5 py-1.5 text-[11px] text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5 rounded-lg border border-dashed border-[#d8c39b] bg-[#f6efdf]/70 px-2.5 py-1.5 text-[11px] text-[#765c2e] dark:border-[#8a6d38]/45 dark:bg-[#8a6d38]/12 dark:text-[#dcc295]">
           <span className="font-semibold uppercase tracking-wide">Excluded:</span>
           {analysis.unreachable.map((state) => (
             <span
               key={state}
-              className="rounded border border-amber-300 bg-white/70 px-1.5 py-0.5 font-mono text-[10px] line-through dark:border-amber-500/30 dark:bg-slate-900/40"
+              className="rounded border border-[#d8c39b] bg-[#FAFAF7]/70 px-1.5 py-0.5 font-mono text-[10px] line-through dark:border-[#8a6d38]/45 dark:bg-[#1b211c]/40"
             >
               {state}
             </span>
@@ -177,8 +177,8 @@ export function PairTable({
                     className={cn(
                       'min-w-[42px] px-1 pb-1 text-center font-mono text-[11px] font-semibold transition-colors',
                       highlighted
-                        ? 'text-indigo-700 dark:text-indigo-300'
-                        : 'text-slate-500 dark:text-slate-400',
+                        ? 'text-[#465447] dark:text-[#A8B5A0]'
+                        : 'text-[#3a463b]/75 dark:text-[#C7D3C1]/70',
                     )}
                   >
                     {state}
@@ -202,8 +202,8 @@ export function PairTable({
                     className={cn(
                       'whitespace-nowrap pr-1.5 text-right font-mono text-[11px] font-semibold transition-colors',
                       rowHighlighted
-                        ? 'text-indigo-700 dark:text-indigo-300'
-                        : 'text-slate-500 dark:text-slate-400',
+                        ? 'text-[#465447] dark:text-[#A8B5A0]'
+                        : 'text-[#3a463b]/75 dark:text-[#C7D3C1]/70',
                     )}
                   >
                     {rowState}
@@ -246,12 +246,12 @@ export function PairTable({
                           }`}
                           aria-pressed={isSelected}
                           className={cn(
-                            'flex h-10 w-full min-w-[42px] items-center justify-center rounded-md border text-xs shadow-sm transition-all duration-150 hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500',
+                            'flex h-10 w-full min-w-[42px] items-center justify-center rounded-md border text-xs shadow-sm transition-colors duration-150 hover:border-[#A8B5A0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#465447] dark:focus-visible:ring-[#A8B5A0]',
                             cellTone(marked, finalized),
                             isNew && 'animate-mark',
-                            isCurrent && 'ring-2 ring-indigo-500 ring-offset-1 dark:ring-offset-[#0d1626]',
+                            isCurrent && 'ring-2 ring-[#8a6d38] ring-offset-1 dark:ring-[#dcc295] dark:ring-offset-[#151a16]',
                             isSelected &&
-                              'ring-2 ring-slate-900 ring-offset-1 dark:ring-white dark:ring-offset-[#0d1626]',
+                              'ring-2 ring-[#465447] ring-offset-1 dark:ring-[#A8B5A0] dark:ring-offset-[#151a16]',
                           )}
                         >
                           <CellContent
@@ -271,13 +271,13 @@ export function PairTable({
         </table>
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-slate-500 dark:text-slate-400">
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
         <span>
-          <span className="font-semibold text-slate-600 dark:text-slate-300">F</span> = marked by
+          <span className="font-semibold text-[#3a463b]/85 dark:text-[#C7D3C1]/80">F</span> = marked by
           accepting status
         </span>
         <span>
-          <span className="font-semibold text-slate-600 dark:text-slate-300">R2</span> = marked in
+          <span className="font-semibold text-[#3a463b]/85 dark:text-[#C7D3C1]/80">R2</span> = marked in
           refinement round 2
         </span>
         <span>Select any cell to inspect the pair.</span>
@@ -328,10 +328,10 @@ function PairInspector({
         : 'Still unmarked'
 
   return (
-    <div className="animate-step mt-3 rounded-xl border border-slate-200 bg-slate-50/80 p-3 dark:border-slate-700 dark:bg-slate-900/50">
+    <div className="animate-step mt-3 rounded-xl border border-[#C7D3C1] bg-[#F2F5EF]/80 p-3 dark:border-[#3a443a] dark:bg-[#263026]/50">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <p className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-900 dark:text-slate-100">
+          <p className="flex flex-wrap items-center gap-2 text-xs font-semibold text-[#292D29] dark:text-slate-100">
             <span className="font-mono">{formatPair(pair)}</span>
             <span
               className={cn(
@@ -346,7 +346,7 @@ function PairInspector({
               {status}
             </span>
           </p>
-          <p className="mt-1.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="mt-1.5 text-[11px] leading-relaxed text-[#3a463b]/85 dark:text-slate-300">
             {markedNow ? (
               info?.reason === 'finality' ? (
                 <>
@@ -358,7 +358,7 @@ function PairInspector({
                   Some input symbol sends {pair.a} and {pair.b} into a pair that was already
                   distinguishable:
                   {info?.via ? (
-                    <span className="mt-1 block font-mono text-[11px] text-slate-700 dark:text-slate-200">
+                    <span className="mt-1 block font-mono text-[11px] text-[#292D29]/80 dark:text-slate-200">
                       on {info.via.symbol}: δ({pair.a}, {info.via.symbol}) = {info.via.dest1} and δ(
                       {pair.b}, {info.via.symbol}) = {info.via.dest2} →{' '}
                       {info.via.destPair
@@ -383,7 +383,7 @@ function PairInspector({
             )}
           </p>
           {analysis.valid && witness && (
-            <p className="mt-1.5 rounded-md border border-rose-200 bg-rose-50/80 px-2 py-1.5 text-[11px] text-rose-800 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-200">
+            <p className="mt-1.5 rounded-md border border-[#c9a79b] bg-[#f7ece7]/80 px-2 py-1.5 text-[11px] text-[#7c4232] dark:border-[#7c4232]/50 dark:bg-[#7c4232]/15 dark:text-[#e0b8a9]">
               Shortest witness:{' '}
               <span className="font-mono font-semibold">{witness.input || 'ε'}</span> — accepted from{' '}
               {witness.acceptedFromA ? pair.a : pair.b} but rejected from{' '}
@@ -391,7 +391,7 @@ function PairInspector({
             </p>
           )}
           {analysis.valid && !witness && markedNow && (
-            <p className="mt-1.5 text-[11px] text-amber-700 dark:text-amber-300">
+            <p className="mt-1.5 text-[11px] text-[#765c2e] dark:text-[#dcc295]">
               The witness search found no separating string, which should not happen for a marked
               pair. Please report this as a bug.
             </p>

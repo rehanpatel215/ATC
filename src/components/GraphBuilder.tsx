@@ -85,13 +85,13 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
           <Plus className="h-3.5 w-3.5" aria-hidden="true" />
           Add symbol
         </button>
-        <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400">
+        <span className="ml-auto text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           {dfa.states.length} states · alphabet {`{${dfa.alphabet.join(', ')}}`}
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50/70 px-2.5 py-2 dark:border-slate-700 dark:bg-slate-900/40">
-        <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-[#C7D3C1] bg-[#F2F5EF]/70 px-2.5 py-2 dark:border-[#3a443a] dark:bg-[#1b211c]/60">
+        <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
           <Workflow className="h-3 w-3" aria-hidden="true" />
           New transition symbol
         </span>
@@ -104,14 +104,14 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
             className={cn(
               'rounded border px-2 py-0.5 font-mono text-[10px] font-bold transition-colors',
               symbol === entry
-                ? 'border-indigo-500 bg-indigo-600 text-white'
-                : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300',
+                ? 'border-[#465447] bg-[#465447] text-[#F2F5EF] dark:border-[#A8B5A0] dark:bg-[#A8B5A0] dark:text-[#20291f]'
+                : 'border-[#C7D3C1] bg-[#FAFAF7] text-[#465447] hover:border-[#A8B5A0] dark:border-[#3a443a] dark:bg-[#1b211c] dark:text-[#C7D3C1]',
             )}
           >
             {entry}
           </button>
         ))}
-        <span className="text-[10px] text-slate-400 dark:text-slate-500">
+        <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           drag between node handles, or use the form below
         </span>
       </div>
@@ -148,12 +148,12 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
       />
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 dark:border-slate-700">
-          <div className="flex items-center justify-between border-b border-slate-100 px-2.5 py-2 dark:border-slate-800">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <div className="rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
+          <div className="flex items-center justify-between border-b border-[#C7D3C1]/60 px-2.5 py-2 dark:border-[#333c34]">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
               States
             </p>
-            <span className="text-[10px] text-slate-400 dark:text-slate-500">click to inspect</span>
+            <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">click to inspect</span>
           </div>
           <div className="max-h-[220px] overflow-y-auto p-1.5">
             {dfa.states.map((state) => {
@@ -165,20 +165,20 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                   className={cn(
                     'flex items-center gap-1 rounded-md px-1 py-0.5 transition-colors',
                     activeState === state
-                      ? 'bg-indigo-50 dark:bg-indigo-500/10'
-                      : 'hover:bg-slate-50 dark:hover:bg-slate-800/50',
+                      ? 'bg-[#A8B5A0]/25 dark:bg-[#A8B5A0]/12'
+                      : 'hover:bg-[#F2F5EF] dark:hover:bg-[#263026]/60',
                   )}
                 >
                   <button
                     type="button"
                     onClick={() => onChange(setInitialState(dfa, state))}
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-colors hover:border-indigo-400 dark:border-slate-600 dark:text-slate-500"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#C7D3C1] text-[#3a463b]/75 transition-colors hover:border-[#465447] dark:border-[#3a443a] dark:text-[#C7D3C1]/70"
                     title={isInitial ? 'Initial state' : 'Make initial state'}
                     aria-label={`Make ${state} the initial state`}
                     aria-pressed={isInitial}
                   >
                     <CircleDot
-                      className={cn('h-3 w-3', isInitial && 'text-indigo-600 dark:text-indigo-400')}
+                      className={cn('h-3 w-3', isInitial && 'text-[#465447] dark:text-[#A8B5A0]')}
                       aria-hidden="true"
                     />
                   </button>
@@ -207,7 +207,7 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                     onClick={() => onChange(toggleFinalState(dfa, state))}
                     className={cn(
                       'icon-btn !h-6 !w-6',
-                      isFinal && 'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300',
+                      isFinal && 'bg-[#e7ede3] text-[#3e4c3f] dark:bg-[#A8B5A0]/15 dark:text-[#C7D3C1]',
                     )}
                     title={isFinal ? 'Remove accepting status' : 'Mark as accepting'}
                     aria-label={isFinal ? `Remove accepting status from ${state}` : `Mark ${state} as accepting`}
@@ -219,7 +219,7 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                     type="button"
                     onClick={() => onChange(removeState(dfa, state))}
                     disabled={dfa.states.length <= 1}
-                    className="icon-btn !h-6 !w-6 hover:text-rose-600 dark:hover:text-rose-400"
+                    className="icon-btn !h-6 !w-6 hover:text-[#7c4232] dark:hover:text-[#e0b8a9]"
                     title="Delete state"
                     aria-label={`Delete state ${state}`}
                   >
@@ -231,12 +231,12 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 dark:border-slate-700">
-          <div className="flex items-center justify-between border-b border-slate-100 px-2.5 py-2 dark:border-slate-800">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <div className="rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
+          <div className="flex items-center justify-between border-b border-[#C7D3C1]/60 px-2.5 py-2 dark:border-[#333c34]">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
               Alphabet
             </p>
-            <span className="text-[10px] text-slate-400 dark:text-slate-500">
+            <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
               {dfa.alphabet.length} symbol{dfa.alphabet.length === 1 ? '' : 's'}
             </span>
           </div>
@@ -244,9 +244,9 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
             {dfa.alphabet.map((entry, index) => (
               <div
                 key={`${entry}-${index}`}
-                className="flex items-center gap-1 rounded-md px-1 hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                className="flex items-center gap-1 rounded-md px-1 hover:bg-[#F2F5EF] dark:hover:bg-[#263026]/60"
               >
-                <span className="w-5 shrink-0 text-center text-[10px] text-slate-400 dark:text-slate-500">
+                <span className="w-5 shrink-0 text-center text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                   {index + 1}
                 </span>
                 <InlineInput
@@ -260,7 +260,7 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                   type="button"
                   onClick={() => onChange(removeSymbol(dfa, entry))}
                   disabled={dfa.alphabet.length <= 1}
-                  className="icon-btn !h-6 !w-6 hover:text-rose-600 dark:hover:text-rose-400"
+                  className="icon-btn !h-6 !w-6 hover:text-[#7c4232] dark:hover:text-[#e0b8a9]"
                   title="Delete symbol"
                   aria-label={`Delete symbol ${entry}`}
                 >
@@ -280,9 +280,9 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700">
-        <div className="flex items-center justify-between border-b border-slate-100 px-2.5 py-2 dark:border-slate-800">
-          <p className="text-[10px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+      <div className="rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
+        <div className="flex items-center justify-between border-b border-[#C7D3C1]/60 px-2.5 py-2 dark:border-[#333c34]">
+          <p className="text-[10px] font-bold uppercase tracking-wide text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
             {activeState
               ? `Transitions from ${activeState}`
               : activeEdge
@@ -296,7 +296,7 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                 setSelectedState(null)
                 setSelectedEdge(null)
               }}
-              className="text-[10px] font-semibold text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-200"
+              className="text-[10px] font-semibold text-[#3a463b]/75 hover:text-[#292D29] dark:text-[#C7D3C1]/70 dark:hover:text-[#F2F5EF]"
             >
               clear selection
             </button>
@@ -308,10 +308,10 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
             <div className="mb-2.5 space-y-1">
               {outgoing.map((entry) => (
                 <div key={entry.symbol} className="flex items-center gap-1.5">
-                  <span className="w-14 shrink-0 rounded border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-center font-mono text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                  <span className="w-14 shrink-0 rounded border border-[#C7D3C1] bg-[#F2F5EF] px-1.5 py-0.5 text-center font-mono text-[10px] font-bold text-[#465447] dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]">
                     on {entry.symbol}
                   </span>
-                  <span className="text-slate-400 dark:text-slate-500">→</span>
+                  <span className="text-[#3a463b]/75 dark:text-[#C7D3C1]/70">→</span>
                   <select
                     value={entry.destination ?? ''}
                     onChange={(event) =>
@@ -334,7 +334,7 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                   <button
                     type="button"
                     onClick={() => onChange(deleteTransition(dfa, activeState, entry.symbol))}
-                    className="icon-btn !h-6 !w-6 hover:text-rose-600 dark:hover:text-rose-400"
+                    className="icon-btn !h-6 !w-6 hover:text-[#7c4232] dark:hover:text-[#e0b8a9]"
                     title="Delete transition"
                     aria-label={`Delete transition from ${activeState} on ${entry.symbol}`}
                   >
@@ -342,24 +342,24 @@ export function GraphBuilder({ dfa, onChange }: GraphBuilderProps) {
                   </button>
                 </div>
               ))}
-              <p className="pt-1 text-[10px] text-slate-400 dark:text-slate-500">
+              <p className="pt-1 text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                 Deleting a transition leaves the DFA incomplete; validation explains what is missing.
               </p>
             </div>
           )}
 
           {!activeState && activeEdge && (
-            <div className="mb-2.5 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-600 dark:text-slate-300">
+            <div className="mb-2.5 flex flex-wrap items-center gap-1.5 text-[11px] text-[#3a463b]/85 dark:text-slate-300">
               <span className="font-mono font-semibold">
                 {activeEdge.from} → {activeEdge.to}
               </span>
-              <span className="text-slate-400 dark:text-slate-500">carries</span>
+              <span className="text-[#3a463b]/75 dark:text-[#C7D3C1]/70">carries</span>
               {dfa.alphabet
                 .filter((entry) => dfa.transitions[activeEdge.from]?.[entry] === activeEdge.to)
                 .map((entry) => (
                   <span
                     key={entry}
-                    className="rounded border border-slate-200 bg-white px-1.5 py-0.5 font-mono text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                    className="rounded border border-[#C7D3C1] bg-[#FAFAF7] px-1.5 py-0.5 font-mono text-[10px] font-bold text-[#465447] dark:border-[#3a443a] dark:bg-[#1b211c] dark:text-[#C7D3C1]"
                   >
                     {entry}
                   </span>

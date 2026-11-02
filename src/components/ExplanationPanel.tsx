@@ -27,13 +27,13 @@ function Section({
         className={cn(
           'text-[10px] font-bold uppercase tracking-[0.12em]',
           tone === 'accent'
-            ? 'text-indigo-600 dark:text-indigo-400'
-            : 'text-slate-400 dark:text-slate-500',
+            ? 'text-[#465447] dark:text-[#A8B5A0]'
+            : 'text-[#3a463b]/75 dark:text-[#C7D3C1]/70',
         )}
       >
         {label}
       </p>
-      <div className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">{children}</div>
+      <div className="mt-1 text-xs leading-relaxed text-[#292D29]/85 dark:text-slate-300">{children}</div>
     </div>
   )
 }
@@ -48,7 +48,7 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
     return (
       <div className="app-card card-pad">
         <h2 className="card-title">Explanation</h2>
-        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+        <p className="mt-1 text-xs text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           Fix the DFA input to generate a walkthrough.
         </p>
       </div>
@@ -60,10 +60,10 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
 
   return (
     <div className="app-card flex min-h-[320px] flex-col overflow-hidden">
-      <div className="border-b border-slate-100 px-4 py-3 dark:border-slate-800">
+      <div className="border-b border-[#C7D3C1]/60 px-4 py-3 dark:border-[#333c34]">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className={cn('chip !py-0.5 !text-[10px]', meta.tone)}>{meta.label}</span>
-          <span className="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500">
+          <span className="font-mono text-[10px] font-semibold text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
             Step {index + 1} of {total}
           </span>
         </div>
@@ -73,21 +73,21 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
             className={cn(
               'mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md',
               step.phase === 'done'
-                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300'
+                ? 'bg-[#e7ede3] text-[#3e4c3f] dark:bg-[#A8B5A0]/15 dark:text-[#C7D3C1]'
                 : step.phase === 'refinement'
-                  ? 'bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300'
-                  : 'bg-indigo-100 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-300',
+                  ? 'bg-[#f6efdf] text-[#765c2e] dark:bg-[#8a6d38]/15 dark:text-[#dcc295]'
+                  : 'bg-[#A8B5A0]/25 text-[#465447] dark:bg-[#A8B5A0]/12 dark:text-[#C7D3C1]',
             )}
           >
             <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
           </span>
-          <h2 className="animate-step text-sm font-semibold leading-snug tracking-tight text-slate-900 dark:text-slate-50">
+          <h2 className="animate-step text-sm font-semibold leading-snug tracking-tight text-[#292D29] dark:text-slate-50">
             {step.title}
           </h2>
         </div>
 
         <div
-          className="mt-3 h-1 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800"
+          className="mt-3 h-1 overflow-hidden rounded-full bg-[#C7D3C1]/50 dark:bg-[#333c34]"
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={100}
@@ -95,7 +95,7 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
           aria-label="Walkthrough progress"
         >
           <div
-            className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-[width] duration-300"
+            className="h-full rounded-full bg-[#465447] transition-[width] duration-300 dark:bg-[#A8B5A0]"
             style={{ width: `${Math.max(2, progress)}%` }}
           />
         </div>
@@ -113,12 +113,12 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
         <Section label="Result">{step.result}</Section>
 
         {step.example && (
-          <div className="rounded-lg border border-indigo-100 bg-indigo-50/60 px-2.5 py-2 dark:border-indigo-500/20 dark:bg-indigo-500/10">
-            <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">
+          <div className="rounded-lg border border-[#C7D3C1] bg-[#F2F5EF]/70 px-2.5 py-2 dark:border-[#3a443a] dark:bg-[#263026]/50">
+            <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-[#465447] dark:text-[#A8B5A0]">
               <Lightbulb className="h-3 w-3" aria-hidden="true" />
               Example
             </p>
-            <p className="mt-1 text-[11px] leading-relaxed text-indigo-900/90 dark:text-indigo-100/90">
+            <p className="mt-1 text-[11px] leading-relaxed text-[#292D29]/85 dark:text-[#C7D3C1]/85">
               {step.example}
             </p>
           </div>
@@ -126,26 +126,26 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
 
         {step.comparisons && step.comparisons.length > 0 && step.pair && (
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400 dark:text-slate-500">
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
               Symbol-by-symbol check for {formatPair(step.pair)}
             </p>
-            <div className="mt-1.5 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+            <div className="mt-1.5 overflow-hidden rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
               <table className="w-full border-collapse text-[11px]">
                 <thead>
-                  <tr className="bg-slate-50 dark:bg-slate-800/60">
-                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  <tr className="bg-[#F2F5EF] dark:bg-[#263026]/70">
+                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                       Input
                     </th>
-                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                       δ({step.pair.a}, a)
                     </th>
-                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                       δ({step.pair.b}, a)
                     </th>
-                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                       Destination pair
                     </th>
-                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    <th className="px-2 py-1.5 text-left text-[9px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                       Outcome
                     </th>
                   </tr>
@@ -155,20 +155,20 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
                     <tr
                       key={comparison.symbol}
                       className={cn(
-                        'border-t border-slate-100 dark:border-slate-800',
-                        comparison.distinguishable && 'bg-rose-50/70 dark:bg-rose-500/10',
+                        'border-t border-[#C7D3C1]/60 dark:border-[#333c34]',
+                        comparison.distinguishable && 'bg-[#f7ece7]/70 dark:bg-[#7c4232]/12',
                       )}
                     >
-                      <td className="px-2 py-1.5 font-mono font-semibold text-slate-800 dark:text-slate-100">
+                      <td className="px-2 py-1.5 font-mono font-semibold text-[#292D29] dark:text-slate-100">
                         {comparison.symbol}
                       </td>
-                      <td className="px-2 py-1.5 font-mono text-slate-600 dark:text-slate-300">
+                      <td className="px-2 py-1.5 font-mono text-[#3a463b]/85 dark:text-slate-300">
                         {comparison.dest1}
                       </td>
-                      <td className="px-2 py-1.5 font-mono text-slate-600 dark:text-slate-300">
+                      <td className="px-2 py-1.5 font-mono text-[#3a463b]/85 dark:text-slate-300">
                         {comparison.dest2}
                       </td>
-                      <td className="px-2 py-1.5 font-mono text-slate-600 dark:text-slate-300">
+                      <td className="px-2 py-1.5 font-mono text-[#3a463b]/85 dark:text-slate-300">
                         {comparison.sameDestination
                           ? 'same state'
                           : comparison.destPair
@@ -177,7 +177,7 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
                       </td>
                       <td className="px-2 py-1.5">
                         {comparison.sameDestination ? (
-                          <span className="text-[10px] text-slate-500 dark:text-slate-400">
+                          <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                             no effect
                           </span>
                         ) : comparison.distinguishable ? (
@@ -198,17 +198,17 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
 
         {step.bullets && step.bullets.length > 0 && (
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400 dark:text-slate-500">
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
               Details
             </p>
             <ul className="mt-1.5 space-y-1">
               {step.bullets.map((bullet, bulletIndex) => (
                 <li
                   key={`${bulletIndex}-${bullet.slice(0, 12)}`}
-                  className="flex gap-1.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300"
+                  className="flex gap-1.5 text-[11px] leading-relaxed text-[#3a463b]/85 dark:text-slate-300"
                 >
                   <span
-                    className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500"
+                    className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#A8B5A0] dark:bg-[#6b776b]"
                     aria-hidden="true"
                   />
                   <span>{bullet}</span>
@@ -219,8 +219,8 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
         )}
 
         {step.technical && (
-          <details className="group rounded-lg border border-slate-200 bg-slate-50/50 dark:border-slate-700 dark:bg-slate-900/40">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500 marker:hidden dark:text-slate-400 [&::-webkit-details-marker]:hidden">
+          <details className="group rounded-lg border border-[#C7D3C1] bg-[#F2F5EF]/50 dark:border-[#3a443a] dark:bg-[#263026]/40">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/75 marker:hidden dark:text-[#C7D3C1]/70 [&::-webkit-details-marker]:hidden">
               <span className="inline-flex items-center gap-1.5">
                 <Sigma className="h-3 w-3" aria-hidden="true" />
                 Technical explanation
@@ -230,7 +230,7 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
                 aria-hidden="true"
               />
             </summary>
-            <p className="border-t border-slate-200 px-2.5 py-2 text-[11px] leading-relaxed text-slate-600 dark:border-slate-700 dark:text-slate-300">
+            <p className="border-t border-[#C7D3C1]/60 px-2.5 py-2 text-[11px] leading-relaxed text-[#3a463b]/85 dark:border-[#333c34] dark:text-slate-300">
               {step.technical}
             </p>
           </details>
@@ -244,8 +244,8 @@ export function ExplanationPanel({ step, index, total, lastIndex }: ExplanationP
 
 function analysisNote(step: AlgorithmStep) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white/70 px-2.5 py-2 dark:border-slate-700 dark:bg-slate-900/40">
-      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+    <div className="rounded-lg border border-[#C7D3C1] bg-[#FAFAF7]/70 px-2.5 py-2 dark:border-[#3a443a] dark:bg-[#263026]/40">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
         Reachability so far
       </p>
       <div className="mt-1 flex flex-wrap gap-1">
@@ -255,8 +255,8 @@ function analysisNote(step: AlgorithmStep) {
             className={cn(
               'rounded border px-1.5 py-0.5 font-mono text-[10px] font-semibold',
               step.visited.includes(state)
-                ? 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-300'
-                : 'border-slate-200 bg-white text-slate-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-500',
+                ? 'border-[#A8B5A0] bg-[#e7ede3] text-[#3e4c3f] dark:border-[#A8B5A0]/40 dark:bg-[#A8B5A0]/12 dark:text-[#C7D3C1]'
+                : 'border-[#C7D3C1]/70 bg-[#FAFAF7] text-[#3a463b]/75 dark:border-[#3a443a] dark:bg-[#1b211c] dark:text-[#C7D3C1]/70',
             )}
           >
             {state}
@@ -265,7 +265,7 @@ function analysisNote(step: AlgorithmStep) {
         {step.unreachable.map((state) => (
           <span
             key={state}
-            className="rounded border border-dashed border-slate-300 px-1.5 py-0.5 font-mono text-[10px] text-slate-400 line-through dark:border-slate-600 dark:text-slate-500"
+            className="rounded border border-dashed border-[#C7D3C1] px-1.5 py-0.5 font-mono text-[10px] text-[#3a463b]/75 line-through dark:border-[#3a443a] dark:text-[#C7D3C1]/70"
           >
             {state}
           </span>

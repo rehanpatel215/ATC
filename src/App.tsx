@@ -141,7 +141,7 @@ export default function App() {
   )
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900 dark:bg-[#080e1a] dark:text-slate-100">
+    <div className="flex min-h-screen flex-col bg-[#FAFAF7] text-[#292D29] dark:bg-[#151a16] dark:text-slate-100">
       <Header page={page} onNavigate={navigate} />
 
       <main className="flex-1">
@@ -181,12 +181,20 @@ export default function App() {
         )}
       </main>
 
-      <footer className="border-t border-slate-200/70 bg-white/60 dark:border-slate-800/70 dark:bg-[#080e1a]/60">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-2 px-4 py-3 text-[10px] text-slate-400 sm:px-6 dark:text-slate-500">
-          <span>
-            AutomataLab · Table-filling DFA minimization · Theory of Computation
+      <footer className="border-t border-[#C7D3C1]/70 bg-[#F2F5EF] dark:border-[#333c34] dark:bg-[#1b211c]">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-1.5 px-4 py-5 text-[11px] text-[#3a463b]/75 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-[#C7D3C1]/70">
+          <span className="inline-flex items-center gap-2">
+            <span className="font-serif text-sm font-semibold text-[#465447] dark:text-[#C7D3C1]">
+              AutomataLab
+            </span>
+            <span aria-hidden="true" className="text-[#A8B5A0]">
+              ·
+            </span>
+            <span>Table-filling DFA minimization · Theory of Computation</span>
           </span>
-          <span>React + TypeScript · deterministic, replayable walkthroughs</span>
+          <span className="text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
+            React + TypeScript · deterministic, replayable walkthroughs
+          </span>
         </div>
       </footer>
     </div>

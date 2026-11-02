@@ -1,15 +1,15 @@
 /** Text-safe palette used for equivalence-group badges and node accents. */
 export const GROUP_COLORS = [
-  '#7c3aed',
-  '#0891b2',
-  '#059669',
-  '#d97706',
-  '#e11d48',
-  '#0284c7',
-  '#4d7c0f',
-  '#c026d3',
-  '#ea580c',
-  '#0f766e',
+  '#465447',
+  '#687861',
+  '#8a6d38',
+  '#7a5b45',
+  '#5f6b7a',
+  '#8a5a5a',
+  '#4f6b62',
+  '#6b5b7a',
+  '#7c6a3f',
+  '#3f5a6b',
 ]
 
 export function groupColor(index: number): string {

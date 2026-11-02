@@ -88,7 +88,7 @@ export function DFAInput({
 
   return (
     <div className="app-card overflow-hidden">
-      <div className="border-b border-slate-100 px-4 py-3 dark:border-slate-800">
+      <div className="border-b border-[#C7D3C1]/60 px-4 py-3 dark:border-[#333c34]">
         <div className="flex items-start justify-between gap-2">
           <div>
             <h2 className="card-title">DFA input</h2>
@@ -104,16 +104,16 @@ export function DFAInput({
           </span>
         </div>
 
-        <div className="mt-2.5 flex rounded-lg border border-slate-200 bg-slate-50 p-0.5 dark:border-slate-700 dark:bg-slate-900">
+        <div className="mt-2.5 flex rounded-md border border-[#C7D3C1] bg-[#F2F5EF] p-0.5 dark:border-[#3a443a] dark:bg-[#1b211c]">
           <button
             type="button"
             onClick={() => setMode('table')}
             aria-pressed={mode === 'table'}
             className={cn(
-              'flex flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] font-semibold transition-colors',
+              'flex flex-1 items-center justify-center gap-1.5 rounded px-2 py-1.5 text-[11px] font-semibold transition-colors',
               mode === 'table'
-                ? 'bg-white text-indigo-700 shadow-sm dark:bg-slate-800 dark:text-indigo-300'
-                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200',
+                ? 'bg-[#FAFAF7] text-[#465447] shadow-sm dark:bg-[#263026] dark:text-[#C7D3C1]'
+                : 'text-[#3a463b]/75 hover:text-[#292D29] dark:text-[#C7D3C1]/70 dark:hover:text-[#F2F5EF]',
             )}
           >
             <Table2 className="h-3.5 w-3.5" aria-hidden="true" />
@@ -124,10 +124,10 @@ export function DFAInput({
             onClick={() => setMode('graph')}
             aria-pressed={mode === 'graph'}
             className={cn(
-              'flex flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] font-semibold transition-colors',
+              'flex flex-1 items-center justify-center gap-1.5 rounded px-2 py-1.5 text-[11px] font-semibold transition-colors',
               mode === 'graph'
-                ? 'bg-white text-indigo-700 shadow-sm dark:bg-slate-800 dark:text-indigo-300'
-                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200',
+                ? 'bg-[#FAFAF7] text-[#465447] shadow-sm dark:bg-[#263026] dark:text-[#C7D3C1]'
+                : 'text-[#3a463b]/75 hover:text-[#292D29] dark:text-[#C7D3C1]/70 dark:hover:text-[#F2F5EF]',
             )}
           >
             <Workflow className="h-3.5 w-3.5" aria-hidden="true" />
@@ -136,7 +136,7 @@ export function DFAInput({
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 border-b border-slate-100 px-4 py-2 dark:border-slate-800">
+      <div className="flex flex-wrap gap-1.5 border-b border-[#C7D3C1]/60 px-4 py-2 dark:border-[#333c34]">
         <button type="button" onClick={onLoadStarter} className="btn btn-secondary btn-sm">
           <Sparkles className="h-3 w-3" aria-hidden="true" />
           Starter
@@ -158,11 +158,11 @@ export function DFAInput({
           <div className="space-y-4">
             <section>
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+                <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
                   States ({dfa.states.length})
                 </h3>
                 <div className="flex items-center gap-1.5">
-                  <label className="flex items-center gap-1 text-[10px] font-medium text-slate-500 dark:text-slate-400">
+                  <label className="flex items-center gap-1 text-[10px] font-medium text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                     Number of states
                     <input
                       type="number"
@@ -186,7 +186,7 @@ export function DFAInput({
                 </div>
               </div>
 
-              <p className="mt-1 text-[10px] leading-relaxed text-slate-400 dark:text-slate-500">
+              <p className="mt-1 text-[10px] leading-relaxed text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                 Names must be unique and cannot contain commas, brackets or parentheses. Click a
                 name to rename it, ◉ to make it initial, ✓ to toggle accepting.
               </p>
@@ -198,18 +198,18 @@ export function DFAInput({
                   return (
                     <div
                       key={state}
-                      className="flex items-center gap-1 rounded-md border border-transparent px-1 py-0.5 hover:border-slate-200 hover:bg-slate-50/70 dark:hover:border-slate-700 dark:hover:bg-slate-800/40"
+                      className="flex items-center gap-1 rounded-md border border-transparent px-1 py-0.5 hover:border-[#C7D3C1] hover:bg-[#F2F5EF]/70 dark:hover:border-[#3a443a] dark:hover:bg-[#263026]/60"
                     >
                       <button
                         type="button"
                         onClick={() => onChange(setInitialState(dfa, state))}
                         aria-pressed={isInitial}
-                        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition-colors hover:border-indigo-400 dark:border-slate-600 dark:text-slate-500"
+                        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#C7D3C1] text-[#3a463b]/75 transition-colors hover:border-[#465447] dark:border-[#3a443a] dark:text-[#C7D3C1]/70"
                         title={isInitial ? 'Initial state' : 'Make initial state'}
                         aria-label={`Make ${state} the initial state`}
                       >
                         <CircleDot
-                          className={cn('h-3 w-3', isInitial && 'text-indigo-600 dark:text-indigo-400')}
+                          className={cn('h-3 w-3', isInitial && 'text-[#465447] dark:text-[#A8B5A0]')}
                           aria-hidden="true"
                         />
                       </button>
@@ -229,7 +229,7 @@ export function DFAInput({
                         className={cn(
                           'icon-btn !h-6 !w-6',
                           isFinal &&
-                            'bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300',
+                            'bg-[#e7ede3] text-[#3e4c3f] dark:bg-[#A8B5A0]/15 dark:text-[#C7D3C1]',
                         )}
                         title={isFinal ? 'Remove accepting status' : 'Mark as accepting'}
                         aria-label={
@@ -244,7 +244,7 @@ export function DFAInput({
                         type="button"
                         onClick={() => onChange(removeState(dfa, state))}
                         disabled={dfa.states.length <= 1}
-                        className="icon-btn !h-6 !w-6 hover:text-rose-600 dark:hover:text-rose-400"
+                        className="icon-btn !h-6 !w-6 hover:text-[#7c4232] dark:hover:text-[#e0b8a9]"
                         title="Delete state"
                         aria-label={`Delete state ${state}`}
                       >
@@ -258,7 +258,7 @@ export function DFAInput({
 
             <section>
               <div className="flex items-center justify-between gap-2">
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+                <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
                   Alphabet ({dfa.alphabet.length})
                 </h3>
                 <button
@@ -274,7 +274,7 @@ export function DFAInput({
                 {dfa.alphabet.map((symbol, index) => (
                   <div
                     key={`${symbol}-${index}`}
-                    className="flex items-center gap-0.5 rounded-lg border border-slate-200 bg-white pl-1 pr-0.5 dark:border-slate-700 dark:bg-slate-900"
+                    className="flex items-center gap-0.5 rounded-md border border-[#C7D3C1] bg-[#FAFAF7] pl-1 pr-0.5 dark:border-[#3a443a] dark:bg-[#1b211c]"
                   >
                     <InlineInput
                       value={symbol}
@@ -287,7 +287,7 @@ export function DFAInput({
                       type="button"
                       onClick={() => onChange(removeSymbol(dfa, symbol))}
                       disabled={dfa.alphabet.length <= 1}
-                      className="icon-btn !h-6 !w-6 hover:text-rose-600 dark:hover:text-rose-400"
+                      className="icon-btn !h-6 !w-6 hover:text-[#7c4232] dark:hover:text-[#e0b8a9]"
                       title={`Delete symbol ${symbol}`}
                       aria-label={`Delete symbol ${symbol}`}
                     >
@@ -299,24 +299,24 @@ export function DFAInput({
             </section>
 
             <section>
-              <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+              <h3 className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#3a463b]/80 dark:text-[#C7D3C1]/70">
                 Transition function δ
               </h3>
-              <p className="mt-1 text-[10px] text-slate-400 dark:text-slate-500">
+              <p className="mt-1 text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                 Every state needs exactly one destination per symbol. Choose a destination to update
                 the table instantly.
               </p>
-              <div className="mt-2 overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
+              <div className="mt-2 overflow-x-auto rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
                 <table className="w-full border-collapse text-left text-xs">
                   <thead>
                     <tr>
-                      <th className="border-b border-slate-200 bg-slate-50/90 px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
+                      <th className="border-b border-[#C7D3C1] bg-[#F2F5EF] px-2 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/70">
                         State
                       </th>
                       {dfa.alphabet.map((symbol) => (
                         <th
                           key={symbol}
-                          className="border-b border-slate-200 bg-slate-50/90 px-1.5 py-1.5 text-center font-mono text-[10px] font-semibold text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400"
+                          className="border-b border-[#C7D3C1] bg-[#F2F5EF] px-1.5 py-1.5 text-center font-mono text-[10px] font-semibold text-[#3a463b]/80 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/70"
                         >
                           {symbol}
                         </th>
@@ -325,19 +325,19 @@ export function DFAInput({
                   </thead>
                   <tbody>
                     {dfa.states.map((state) => (
-                      <tr key={state} className="odd:bg-white even:bg-slate-50/40 dark:odd:bg-transparent dark:even:bg-slate-900/30">
+                      <tr key={state} className="odd:bg-[#FAFAF7] even:bg-[#F2F5EF]/40 dark:odd:bg-transparent dark:even:bg-[#263026]/30">
                         <th
                           scope="row"
-                          className="whitespace-nowrap border-b border-slate-100 px-2 py-1 text-left font-mono text-[11px] font-semibold text-slate-800 dark:border-slate-800 dark:text-slate-100"
+                          className="whitespace-nowrap border-b border-[#C7D3C1]/60 px-2 py-1 text-left font-mono text-[11px] font-semibold text-[#292D29] dark:border-[#333c34] dark:text-slate-100"
                         >
                           {state === dfa.initialState && (
-                            <span className="mr-1 text-indigo-600 dark:text-indigo-400" aria-label="initial">
+                            <span className="mr-1 text-[#465447] dark:text-[#A8B5A0]" aria-label="initial">
                               →
                             </span>
                           )}
                           {state}
                           {dfa.finalStates.includes(state) && (
-                            <span className="ml-1 text-[9px] text-emerald-600 dark:text-emerald-400" aria-label="accepting">
+                            <span className="ml-1 text-[9px] text-[#3e4c3f] dark:text-[#C7D3C1]" aria-label="accepting">
                               ◎
                             </span>
                           )}
@@ -347,7 +347,7 @@ export function DFAInput({
                           return (
                             <td
                               key={symbol}
-                              className="border-b border-slate-100 px-1 py-1 dark:border-slate-800"
+                              className="border-b border-[#C7D3C1]/60 px-1 py-1 dark:border-[#333c34]"
                             >
                               <select
                                 value={destination ?? ''}
@@ -358,7 +358,7 @@ export function DFAInput({
                                 className={cn(
                                   'select !px-1.5 !py-1 text-center font-mono !text-[11px]',
                                   destination === undefined &&
-                                    'border-rose-300 text-rose-600 dark:border-rose-500/40 dark:text-rose-400',
+                                    'border-[#c9a79b] text-[#7c4232] dark:border-[#7c4232]/50 dark:text-[#e0b8a9]',
                                 )}
                               >
                                 {destination === undefined && (
@@ -386,8 +386,8 @@ export function DFAInput({
 
         <div className="mt-4 space-y-1.5">
           {validation.errors.length > 0 && (
-            <div className="rounded-lg border border-rose-200 bg-rose-50/80 px-2.5 py-2 dark:border-rose-500/30 dark:bg-rose-500/10">
-              <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-rose-700 dark:text-rose-300">
+            <div className="rounded-lg border border-[#c9a79b] bg-[#f7ece7]/80 px-2.5 py-2 dark:border-[#7c4232]/50 dark:bg-[#7c4232]/15">
+              <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide text-[#7c4232] dark:text-[#e0b8a9]">
                 <TriangleAlert className="h-3 w-3" aria-hidden="true" />
                 {validation.errors.length} validation error
                 {validation.errors.length === 1 ? '' : 's'}
@@ -396,7 +396,7 @@ export function DFAInput({
                 {validation.errors.map((error) => (
                   <li
                     key={error}
-                    className="flex gap-1.5 text-[11px] leading-relaxed text-rose-800 dark:text-rose-200"
+                    className="flex gap-1.5 text-[11px] leading-relaxed text-[#7c4232] dark:text-[#e0b8a9]"
                   >
                     <span aria-hidden="true">•</span>
                     <span>{error}</span>
@@ -407,7 +407,7 @@ export function DFAInput({
           )}
 
           {validation.valid && (
-            <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50/70 px-2.5 py-1.5 text-[11px] text-emerald-800 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
+            <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-[#A8B5A0] bg-[#e7ede3]/70 px-2.5 py-1.5 text-[11px] text-[#3e4c3f] dark:border-[#A8B5A0]/35 dark:bg-[#A8B5A0]/12 dark:text-[#C7D3C1]">
               <Check className="h-3.5 w-3.5" aria-hidden="true" />
               <span className="font-semibold">Valid DFA.</span>
               <span>
@@ -415,7 +415,7 @@ export function DFAInput({
                 {dfa.finalStates.length} accepting.
               </span>
               {unreachable.length > 0 && (
-                <span className="inline-flex items-center gap-1 rounded border border-amber-300 bg-amber-50 px-1.5 py-0.5 text-[10px] font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200">
+                <span className="inline-flex items-center gap-1 rounded border border-[#d8c39b] bg-[#f6efdf] px-1.5 py-0.5 text-[10px] font-medium text-[#765c2e] dark:border-[#8a6d38]/50 dark:bg-[#8a6d38]/15 dark:text-[#dcc295]">
                   <Info className="h-3 w-3" aria-hidden="true" />
                   {unreachable.length} unreachable: {unreachable.join(', ')} (removed during minimization)
                 </span>
@@ -427,7 +427,7 @@ export function DFAInput({
             validation.warnings.map((warning) => (
               <p
                 key={warning}
-                className="flex gap-1.5 rounded-lg border border-amber-200 bg-amber-50/70 px-2.5 py-1.5 text-[11px] leading-relaxed text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-200"
+                className="flex gap-1.5 rounded-lg border border-[#d8c39b] bg-[#f6efdf]/70 px-2.5 py-1.5 text-[11px] leading-relaxed text-[#765c2e] dark:border-[#8a6d38]/50 dark:bg-[#8a6d38]/15 dark:text-[#dcc295]"
               >
                 <Info className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
                 {warning}

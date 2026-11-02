@@ -59,7 +59,7 @@ export function InlineInput({
         }
       }}
       className={cn(
-        'w-full min-w-0 rounded-md border border-transparent bg-transparent px-1.5 py-1 font-mono text-xs font-semibold text-slate-900 outline-none transition-colors hover:border-slate-300 focus:border-indigo-400 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 dark:text-slate-100 dark:hover:border-slate-600 dark:focus:border-indigo-500 dark:focus:bg-slate-950/60',
+        'w-full min-w-0 rounded-md border border-transparent bg-transparent px-1.5 py-1 font-mono text-xs font-semibold text-[#292D29] outline-none transition-colors hover:border-[#C7D3C1] focus:border-[#A8B5A0] focus:bg-[#FAFAF7] focus:ring-2 focus:ring-[#A8B5A0]/30 dark:text-slate-100 dark:hover:border-[#3a443a] dark:focus:border-[#A8B5A0] dark:focus:bg-[#151a16]',
         className,
       )}
     />

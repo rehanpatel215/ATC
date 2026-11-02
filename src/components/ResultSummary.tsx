@@ -48,21 +48,21 @@ function Stat({
       className={cn(
         'rounded-lg border px-2.5 py-2',
         tone === 'accent'
-          ? 'border-indigo-200 bg-indigo-50/60 dark:border-indigo-500/30 dark:bg-indigo-500/10'
+          ? 'border-[#A8B5A0]/70 bg-[#e7ede3]/70 dark:border-[#A8B5A0]/35 dark:bg-[#A8B5A0]/12'
           : tone === 'good'
-            ? 'border-emerald-200 bg-emerald-50/60 dark:border-emerald-500/30 dark:bg-emerald-500/10'
+            ? 'border-[#A8B5A0] bg-[#e7ede3] dark:border-[#A8B5A0]/40 dark:bg-[#A8B5A0]/15'
             : tone === 'warn'
-              ? 'border-amber-200 bg-amber-50/60 dark:border-amber-500/30 dark:bg-amber-500/10'
-              : 'border-slate-200 bg-slate-50/60 dark:border-slate-700 dark:bg-slate-900/40',
+              ? 'border-[#d8c39b] bg-[#f6efdf] dark:border-[#8a6d38]/50 dark:bg-[#8a6d38]/15'
+              : 'border-[#C7D3C1]/70 bg-[#F2F5EF]/70 dark:border-[#3a443a] dark:bg-[#263026]/50',
       )}
     >
-      <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400">
+      <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
         {label}
       </p>
-      <p className="mt-0.5 font-mono text-lg font-bold leading-none text-slate-900 dark:text-slate-50">
+      <p className="mt-0.5 font-mono text-lg font-bold leading-none text-[#292D29] dark:text-slate-50">
         {value}
       </p>
-      {hint && <p className="mt-1 text-[10px] leading-tight text-slate-500 dark:text-slate-400">{hint}</p>}
+      {hint && <p className="mt-1 text-[10px] leading-tight text-[#3a463b]/75 dark:text-[#C7D3C1]/70">{hint}</p>}
     </div>
   )
 }
@@ -106,7 +106,7 @@ function ExportButtons({ dfa, base, label }: { dfa: DFA; base: string; label: st
         PNG
       </button>
       {error && (
-        <span className="inline-flex items-center gap-1 text-[10px] text-rose-600 dark:text-rose-400">
+        <span className="inline-flex items-center gap-1 text-[10px] text-[#7c4232] dark:text-[#e0b8a9]">
           <TriangleAlert className="h-3 w-3" aria-hidden="true" />
           {error}
         </span>
@@ -141,10 +141,10 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
 
   return (
     <section className="app-card overflow-hidden" id="result-summary">
-      <div className="flex flex-wrap items-start justify-between gap-2 border-b border-slate-100 px-4 py-3 dark:border-slate-800">
+      <div className="flex flex-wrap items-start justify-between gap-2 border-b border-[#C7D3C1]/60 px-4 py-3 dark:border-[#333c34]">
         <div>
           <p className="eyebrow">Result summary</p>
-          <h2 className="mt-0.5 text-base font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="mt-0.5 font-serif text-xl font-semibold tracking-tight text-[#292D29] dark:text-[#F2F5EF]">
             {title ?? 'Original DFA → minimized DFA'}
           </h2>
           <p className="card-subtitle mt-0.5">
@@ -192,17 +192,17 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
         </div>
 
         <div className="grid gap-3 lg:grid-cols-2">
-          <div className="rounded-xl border border-slate-200 p-2.5 dark:border-slate-700">
+          <div className="rounded-lg border border-[#C7D3C1] p-2.5 dark:border-[#3a443a]">
             <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 pb-2">
               <div>
-                <p className="text-[11px] font-semibold text-slate-900 dark:text-slate-100">
+                <p className="text-[11px] font-semibold text-[#292D29] dark:text-slate-100">
                   Original DFA{' '}
-                  <span className="font-normal text-slate-500 dark:text-slate-400">
+                  <span className="font-normal text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                     ({dfa.states.length} states)
                   </span>
                 </p>
                 {removed > 0 && (
-                  <p className="text-[10px] text-amber-700 dark:text-amber-300">
+                  <p className="text-[10px] text-[#765c2e] dark:text-[#dcc295]">
                     Unreachable states are faded; they are excluded from the result.
                   </p>
                 )}
@@ -218,16 +218,16 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
             />
           </div>
 
-          <div className="rounded-xl border border-slate-200 p-2.5 dark:border-slate-700">
+          <div className="rounded-lg border border-[#C7D3C1] p-2.5 dark:border-[#3a443a]">
             <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 pb-2">
               <div>
-                <p className="text-[11px] font-semibold text-slate-900 dark:text-slate-100">
+                <p className="text-[11px] font-semibold text-[#292D29] dark:text-slate-100">
                   Minimized DFA{' '}
-                  <span className="font-normal text-slate-500 dark:text-slate-400">
+                  <span className="font-normal text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                     ({minimized.states.length} states)
                   </span>
                 </p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                <p className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                   Accepting: {formatSet(minimized.finalStates)} · initial: {minimized.initialState}
                 </p>
               </div>
@@ -248,11 +248,11 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
 
         <div>
           <div className="flex flex-wrap items-center justify-between gap-2">
-            <h3 className="flex items-center gap-1.5 text-xs font-semibold text-slate-900 dark:text-slate-100">
-              <Layers className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
+            <h3 className="flex items-center gap-1.5 text-xs font-semibold text-[#292D29] dark:text-slate-100">
+              <Layers className="h-3.5 w-3.5 text-[#465447] dark:text-[#A8B5A0]" aria-hidden="true" />
               Equivalent-state groups
             </h3>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400">
+            <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
               {groups.filter((group) => group.members.length > 1).length} merged group(s)
             </span>
           </div>
@@ -260,7 +260,7 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
             {groups.map((group, index) => (
               <div
                 key={group.name}
-                className="flex items-start gap-2 rounded-lg border border-slate-200 px-2.5 py-1.5 dark:border-slate-700"
+                className="flex items-start gap-2 rounded-lg border border-[#C7D3C1]/70 px-2.5 py-1.5 dark:border-[#3a443a]"
               >
                 <span
                   className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-bold text-white"
@@ -270,11 +270,11 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
                   {index + 1}
                 </span>
                 <div className="min-w-0">
-                  <p className="font-mono text-[11px] font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="font-mono text-[11px] font-semibold text-[#292D29] dark:text-slate-100">
                     {group.name}
                   </p>
-                  <p className="flex flex-wrap items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
-                    <span className="rounded bg-slate-100 px-1 dark:bg-slate-800">
+                  <p className="flex flex-wrap items-center gap-1 text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
+                    <span className="rounded bg-[#F2F5EF] px-1 dark:bg-[#263026]">
                       {groupBadge(index)}
                     </span>
                     {group.members.join(', ')}
@@ -288,8 +288,8 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-lg border border-rose-200/70 bg-rose-50/40 px-2.5 py-2 dark:border-rose-500/20 dark:bg-rose-500/5">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-rose-700 dark:text-rose-300">
+          <div className="rounded-lg border border-[#c9a79b]/60 bg-[#f7ece7]/40 px-2.5 py-2 dark:border-[#7c4232]/30 dark:bg-[#7c4232]/8">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-[#7c4232] dark:text-[#e0b8a9]">
               Distinguishable pairs ({markedPairs})
             </p>
             <div className="mt-1.5 flex flex-wrap gap-1">
@@ -300,7 +300,7 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
                   return (
                     <span
                       key={pair.key}
-                      className="rounded border border-rose-200 bg-white/80 px-1.5 py-0.5 font-mono text-[10px] text-rose-700 dark:border-rose-500/30 dark:bg-slate-900/50 dark:text-rose-300"
+                      className="rounded border border-[#c9a79b] bg-[#FAFAF7]/80 px-1.5 py-0.5 font-mono text-[10px] text-[#7c4232] dark:border-[#7c4232]/45 dark:bg-[#1b211c]/50 dark:text-[#e0b8a9]"
                       title={
                         info?.reason === 'finality'
                           ? 'Accepting status'
@@ -315,28 +315,28 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
                   )
                 })}
               {markedPairs === 0 && (
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                <span className="text-[11px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                   No pair is distinguishable — every reachable state is equivalent.
                 </span>
               )}
             </div>
           </div>
 
-          <div className="rounded-lg border border-emerald-200/70 bg-emerald-50/40 px-2.5 py-2 dark:border-emerald-500/20 dark:bg-emerald-500/5">
-            <p className="text-[10px] font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
+          <div className="rounded-lg border border-[#A8B5A0]/70 bg-[#e7ede3]/40 px-2.5 py-2 dark:border-[#A8B5A0]/25 dark:bg-[#A8B5A0]/8">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-[#3e4c3f] dark:text-[#C7D3C1]">
               Equivalent pairs ({analysis.equivalentPairs.length})
             </p>
             <div className="mt-1.5 flex flex-wrap gap-1">
               {analysis.equivalentPairs.map((pair) => (
                 <span
                   key={pair.key}
-                  className="rounded border border-emerald-200 bg-white/80 px-1.5 py-0.5 font-mono text-[10px] text-emerald-700 dark:border-emerald-500/30 dark:bg-slate-900/50 dark:text-emerald-300"
+                  className="rounded border border-[#A8B5A0] bg-[#FAFAF7]/80 px-1.5 py-0.5 font-mono text-[10px] text-[#3e4c3f] dark:border-[#A8B5A0]/35 dark:bg-[#1b211c]/50 dark:text-[#C7D3C1]"
                 >
                   {formatPair(pair)}
                 </span>
               ))}
               {analysis.equivalentPairs.length === 0 && (
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">
+                <span className="text-[11px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
                   No equivalent pairs remain — every state is already distinct.
                 </span>
               )}
@@ -344,14 +344,14 @@ export function ResultSummary({ analysis, dfa, sourceLabel, title }: ResultSumma
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-[11px] text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-[#C7D3C1]/70 bg-[#F2F5EF]/60 px-3 py-2 text-[11px] text-[#3a463b]/85 dark:border-[#3a443a] dark:bg-[#263026]/50 dark:text-slate-300">
           <span className="font-semibold">Verification:</span>
           <span>
             {analysis.build?.consistent
               ? 'Every class agrees on destination classes for all symbols.'
               : 'The quotient consistency check failed.'}
           </span>
-          <span className="inline-flex items-center gap-1 font-mono text-[10px] text-slate-500 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
             {formatSet(analysis.orderedReachable)}
             <ArrowRight className="h-3 w-3" aria-hidden="true" />
             {formatSet(minimized.states)}

@@ -61,23 +61,23 @@ export function StepControls({ sim, className }: StepControlsProps) {
             {playing ? 'Auto playback' : started ? 'Manual stepping' : 'Ready'}
           </span>
           {analysis.markingRounds > 0 && (
-            <span className="hidden text-[10px] text-slate-500 sm:inline dark:text-slate-400">
+            <span className="hidden text-[10px] text-[#3a463b]/75 sm:inline dark:text-[#C7D3C1]/70">
               {analysis.markingRounds} marking round{analysis.markingRounds === 1 ? '' : 's'}
             </span>
           )}
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+          <span className="font-mono text-[11px] font-semibold text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
             Step {index + 1} / {total}
           </span>
-          <span className="hidden font-mono text-[10px] text-slate-400 sm:inline dark:text-slate-500">
+          <span className="hidden font-mono text-[10px] text-[#3a463b]/75 sm:inline dark:text-[#C7D3C1]/70">
             {progress}%
           </span>
         </div>
       </div>
 
       <div
-        className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800"
+        className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#C7D3C1]/50 dark:bg-[#333c34]"
         role="progressbar"
         aria-valuemin={1}
         aria-valuemax={Math.max(1, total)}
@@ -85,7 +85,7 @@ export function StepControls({ sim, className }: StepControlsProps) {
         aria-label="Algorithm progress"
       >
         <div
-          className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 transition-[width] duration-300"
+          className="h-full rounded-full bg-[#465447] transition-[width] duration-300 dark:bg-[#A8B5A0]"
           style={{ width: `${Math.max(1.5, ((index + 1) / Math.max(1, total)) * 100)}%` }}
         />
       </div>
@@ -100,26 +100,26 @@ export function StepControls({ sim, className }: StepControlsProps) {
               className={cn(
                 'inline-flex items-center gap-1 text-[9px] font-semibold uppercase tracking-wide',
                 active
-                  ? 'text-indigo-700 dark:text-indigo-300'
+                  ? 'text-[#465447] dark:text-[#C7D3C1]'
                   : reached
-                    ? 'text-slate-500 dark:text-slate-400'
-                    : 'text-slate-300 dark:text-slate-600',
+                    ? 'text-[#3a463b]/75 dark:text-[#C7D3C1]/70'
+                    : 'text-[#3a463b]/75 dark:text-[#C7D3C1]/70',
               )}
             >
               <span
                 className={cn(
                   'h-1.5 w-1.5 rounded-full',
                   active
-                    ? 'animate-pulse bg-indigo-500'
+                    ? 'animate-pulse bg-[#465447] dark:bg-[#C7D3C1]'
                     : reached
-                      ? 'bg-slate-400 dark:bg-slate-500'
-                      : 'bg-slate-200 dark:bg-slate-700',
+                      ? 'bg-[#A8B5A0] dark:bg-[#6b776b]'
+                      : 'bg-[#C7D3C1]/60 dark:bg-[#333c34]',
                 )}
                 aria-hidden="true"
               />
               {PHASE_META[entry]?.label ?? entry}
               {phaseIndex < PHASE_ORDER.length - 1 && (
-                <span className="text-slate-300 dark:text-slate-700" aria-hidden="true">
+                <span className="text-[#C7D3C1] dark:text-[#333c34]" aria-hidden="true">
                   /
                 </span>
               )}
@@ -185,9 +185,9 @@ export function StepControls({ sim, className }: StepControlsProps) {
           Reset
         </button>
 
-        <div className="mx-1 hidden h-5 w-px bg-slate-200 sm:block dark:bg-slate-700" />
+        <div className="mx-1 hidden h-5 w-px bg-[#C7D3C1] sm:block dark:bg-[#3a443a]" />
 
-        <label className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+        <label className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           <SkipForward className="h-3.5 w-3.5" aria-hidden="true" />
           Jump
           <select
@@ -206,11 +206,11 @@ export function StepControls({ sim, className }: StepControlsProps) {
         </label>
 
         <div className="ml-auto flex items-center gap-1.5">
-          <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
+          <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
             <Gauge className="h-3.5 w-3.5" aria-hidden="true" />
             Speed
           </span>
-          <div className="flex overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+          <div className="flex overflow-hidden rounded-md border border-[#C7D3C1] dark:border-[#3a443a]">
             {SPEED_OPTIONS.map((option) => (
               <button
                 key={option}
@@ -220,8 +220,8 @@ export function StepControls({ sim, className }: StepControlsProps) {
                 className={cn(
                   'px-2 py-1 text-[10px] font-semibold transition-colors',
                   speed === option
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800',
+                    ? 'bg-[#465447] text-[#F2F5EF] dark:bg-[#A8B5A0] dark:text-[#20291f]'
+                    : 'bg-[#FAFAF7] text-[#3a463b]/75 hover:bg-[#F2F5EF] dark:bg-[#1b211c] dark:text-[#C7D3C1]/75 dark:hover:bg-[#263026]',
                 )}
               >
                 {option}x
@@ -232,7 +232,7 @@ export function StepControls({ sim, className }: StepControlsProps) {
       </div>
 
       {!analysis.valid && (
-        <p className="mt-2 text-[11px] text-rose-600 dark:text-rose-400">
+        <p className="mt-2 text-[11px] text-[#7c4232] dark:text-[#e0b8a9]">
           Execution is disabled until the DFA is valid. See the validation messages in the input
           panel.
         </p>

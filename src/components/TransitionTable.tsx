@@ -39,26 +39,26 @@ export function TransitionTable({
   return (
     <div className={cn('min-w-0', className)}>
       {title && (
-        <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#3a463b]/75 dark:text-[#C7D3C1]/70">
           {title}
         </p>
       )}
-      <div className="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
+      <div className="overflow-x-auto rounded-lg border border-[#C7D3C1] dark:border-[#3a443a]">
         <table className={cn('w-full border-collapse text-left', compact ? 'text-[11px]' : 'text-xs')}>
           <thead>
             <tr>
-              <th className="whitespace-nowrap border-b border-slate-200 bg-slate-50/90 px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
+              <th className="whitespace-nowrap border-b border-[#C7D3C1] bg-[#F2F5EF] px-2.5 py-2 text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/70">
                 State
               </th>
               {dfa.alphabet.map((symbol) => (
                 <th
                   key={symbol}
-                  className="whitespace-nowrap border-b border-slate-200 bg-slate-50/90 px-2.5 py-2 text-center text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400"
+                  className="whitespace-nowrap border-b border-[#C7D3C1] bg-[#F2F5EF] px-2.5 py-2 text-center text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/70"
                 >
                   {symbol}
                 </th>
               ))}
-              <th className="whitespace-nowrap border-b border-slate-200 bg-slate-50/90 px-2.5 py-2 text-center text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
+              <th className="whitespace-nowrap border-b border-[#C7D3C1] bg-[#F2F5EF] px-2.5 py-2 text-center text-[10px] font-semibold uppercase tracking-wide text-[#3a463b]/80 dark:border-[#3a443a] dark:bg-[#263026] dark:text-[#C7D3C1]/70">
                 Type
               </th>
             </tr>
@@ -74,19 +74,19 @@ export function TransitionTable({
                   key={state}
                   className={cn(
                     'transition-colors',
-                    rowHighlighted && 'bg-indigo-50/70 dark:bg-indigo-500/10',
+                    rowHighlighted && 'bg-[#A8B5A0]/20 dark:bg-[#A8B5A0]/10',
                     isRemoved && 'opacity-45',
                   )}
                 >
                   <th
                     scope="row"
-                    className="whitespace-nowrap border-b border-slate-100 px-2.5 py-1.5 text-left font-semibold text-slate-800 dark:border-slate-800 dark:text-slate-100"
+                    className="whitespace-nowrap border-b border-[#C7D3C1]/60 px-2.5 py-1.5 text-left font-semibold text-[#292D29] dark:border-[#333c34] dark:text-slate-100"
                   >
                     <span className="flex items-center gap-1.5">
                       <span
                         className={cn(
                           'inline-flex w-4 shrink-0 justify-center text-[11px]',
-                          isInitial ? 'text-indigo-600 dark:text-indigo-400' : 'text-transparent',
+                          isInitial ? 'text-[#465447] dark:text-[#A8B5A0]' : 'text-transparent',
                         )}
                         aria-hidden="true"
                       >
@@ -95,7 +95,7 @@ export function TransitionTable({
                       <span className={cn(isRemoved && 'line-through')}>{state}</span>
                       {isFinal && (
                         <span
-                          className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full border border-slate-500 text-[8px] font-bold leading-none text-slate-500 dark:border-slate-400 dark:text-slate-300"
+                          className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full border border-[#465447]/70 text-[8px] font-bold leading-none text-[#3a463b]/85 dark:border-[#C7D3C1]/60 dark:text-[#C7D3C1]/80"
                           title="Accepting state"
                           aria-label="Accepting state"
                         >
@@ -113,17 +113,17 @@ export function TransitionTable({
                       <td
                         key={symbol}
                         className={cn(
-                          'border-b border-slate-100 px-2.5 py-1.5 text-center font-mono text-[11px] dark:border-slate-800',
+                          'border-b border-[#C7D3C1]/60 px-2.5 py-1.5 text-center font-mono text-[11px] dark:border-[#333c34]',
                           active &&
-                            'bg-indigo-100 font-bold text-indigo-800 ring-1 ring-inset ring-indigo-300 dark:bg-indigo-500/20 dark:text-indigo-200 dark:ring-indigo-500/40',
-                          destination === undefined && 'text-rose-600 dark:text-rose-400',
+                            'bg-[#A8B5A0]/30 font-bold text-[#2f3a30] ring-1 ring-inset ring-[#A8B5A0] dark:bg-[#A8B5A0]/20 dark:text-[#C7D3C1] dark:ring-[#A8B5A0]/45',
+                          destination === undefined && 'text-[#7c4232] dark:text-[#e0b8a9]',
                         )}
                       >
                         {destination ?? 'undefined'}
                       </td>
                     )
                   })}
-                  <td className="whitespace-nowrap border-b border-slate-100 px-2.5 py-1.5 text-center dark:border-slate-800">
+                  <td className="whitespace-nowrap border-b border-[#C7D3C1]/60 px-2.5 py-1.5 text-center dark:border-[#333c34]">
                     <span className="inline-flex flex-wrap justify-center gap-1">
                       {isInitial && (
                         <span className="chip chip-indigo !px-1.5 !py-0 !text-[9px]">start</span>
@@ -135,7 +135,7 @@ export function TransitionTable({
                         <span className="chip chip-neutral !px-1.5 !py-0 !text-[9px]">removed</span>
                       )}
                       {!isInitial && !isFinal && !isRemoved && (
-                        <span className="text-[10px] text-slate-400 dark:text-slate-500">normal</span>
+                        <span className="text-[10px] text-[#3a463b]/75 dark:text-[#C7D3C1]/70">normal</span>
                       )}
                     </span>
                   </td>
