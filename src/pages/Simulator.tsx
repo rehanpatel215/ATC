@@ -203,6 +203,11 @@ export function Simulator({
         </section>
       )}
 
+      {/* Execution controls at the top */}
+      <div className="mb-3">
+        <StepControls sim={sim} />
+      </div>
+
       <div className="grid gap-3 xl:grid-cols-[320px_minmax(0,1fr)_340px]">
         <div className="min-w-0">
           <DFAInput
@@ -412,10 +417,6 @@ export function Simulator({
             lastIndex={sim.lastIndex}
           />
         </div>
-      </div>
-
-      <div className="mt-3">
-        <StepControls sim={sim} />
       </div>
 
       <div className="mt-3">
